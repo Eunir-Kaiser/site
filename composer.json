@@ -3,16 +3,15 @@
     "description": "Projeto PHP OO",
     "authors": [
         {
-            "name": "Eunir Kaiser",
-            "email": "eunirk@gmail.net.com"
-        }],
-
+            "name": "Cesar Szpak",
+            "email": "cesar@celke.com.br"
+        }
+    ],
     "autoload": {
         "psr-4": {
-            "Core\\": "core",
-            "Sts\\":"app/sts"
+            "Core\\" : "core",
+            "Sts\\": "app/sts"
         }
     },
     "require": {}
 }
-
