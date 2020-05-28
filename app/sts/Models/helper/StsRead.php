@@ -14,7 +14,8 @@ if (!defined('URL')) {
  *
  * @copyright (c) year, Cesar Szpak - Celke
  */
-class StsRead extends StsConn {
+class StsRead extends StsConn
+{
 
     private $Select;
     private $Values;
@@ -22,51 +23,51 @@ class StsRead extends StsConn {
     private $Query;
     private $Conn;
 
-    function getResultado() {
+    function getResultado()
+    {
         return $this->Resultado;
     }
 
-    //Listar todos
-    public function exeRead($Tabela, $Termos = null, $ParseString = null) {
+    public function exeRead($Tabela, $Termos = null, $ParseString = null)
+    {
         if (!empty($ParseString)) {
             parse_str($ParseString, $this->Values);
         }
         $this->Select = "SELECT * FROM {$Tabela} {$Termos}";
-        echo "{$this->Select}";
+        //echo "{$this->Select}";
         $this->exeInstrucao();
     }
 
-    //Listar parcial
-    public function fullRead($Query, $ParseString = null) {
+    public function fullRead($Query, $ParseString = null)
+    {
         $this->Select = (string) $Query;
-        if (!empty($ParseString)){
+        if (!empty($ParseString)) {
             parse_str($ParseString, $this->Values);
         }
         $this->exeInstrucao();
-        
     }
 
-
-    private function exeInstrucao() {
+    private function exeInstrucao()
+    {
         $this->conexao();
         try {
-            $this->getInstrucao();
+            $this->getIntrucao();
             $this->Query->execute();
-            $this->Resultado = $this->Query->fetchALL();
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        } finally {
-            
+            $this->Resultado = $this->Query->fetchAll();
+        } catch (Exception $ex) {
+            $this->Resultado = null;
         }
     }
 
-    private function conexao() {
+    private function conexao()
+    {
         $this->Conn = parent::getConn();
         $this->Query = $this->Conn->prepare($this->Select);
         $this->Query->setFetchMode(PDO::FETCH_ASSOC);
     }
 
-    private function getInstrucao() {
+    private function getIntrucao()
+    {
         if ($this->Values) {
             foreach ($this->Values as $Link => $Valor) {
                 if ($Link == 'limit' || $Link == 'offset') {

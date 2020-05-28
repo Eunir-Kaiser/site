@@ -2,8 +2,8 @@
 session_start();
 ob_start();
 
-define('URL', 'http://localhost/celke/');
-define('URLADM', 'http://localhost/celke/adm/');
+define('URL', 'http://localhost/site/');
+define('URLADM', 'http://localhost/site/adm/');
 
 define('CONTROLER', 'Home');
 define('METODO', 'index');
