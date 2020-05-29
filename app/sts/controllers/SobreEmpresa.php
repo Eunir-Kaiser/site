@@ -12,12 +12,16 @@ if (!defined('URL')) {
  *
  * @copyright (c) year, Cesar Szpak - Celke
  */
-class SobreEmpresa
-{
+class SobreEmpresa {
 
-    public function index()
-    {
-        echo "Página Sobre Empresa <br>";
+    private $Dados;
+
+    public function index() {
+        $listarSobEmp = new \Sts\Models\StsSobEmp();
+        $this->Dados['sts_sobs_emps'] = $listarSobEmp->listarSobEmp();
+
+        $carregarView = new \Core\ConfigView('sts/Views/sobEmp/sobEmp', $this->Dados);
+        $carregarView->renderizar();
     }
 
 }
