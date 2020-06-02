@@ -27,6 +27,15 @@ class Blog
         $this->Dados['artigos'] = $listar_art->listarArtigos($this->PageId);
         $this->Dados['paginacao'] = $listar_art->getResultadoPg();
 
+        $listarArtRecente = new \Sts\Models\StsArtRecente();
+        $this->Dados['artRecente'] = $listarArtRecente->listarArtRecente();
+
+        $listarArtDestaque = new \Sts\Models\StsArtDestaque();
+        $this->Dados['artDestaque'] = $listarArtDestaque->listarArtDestaque();
+
+        $visSobreAutor = new \Sts\Models\StsSobreAutor();
+        $this->Dados['sobreAutor'] = $visSobreAutor->sobreAutor();
+
         $carregarView = new \Core\ConfigView('sts/Views/blog/blog', $this->Dados);
         $carregarView->renderizar();
     }

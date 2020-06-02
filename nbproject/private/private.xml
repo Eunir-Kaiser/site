@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/Site/layout_php_oo/sobre_empresa.html</file>
-            <file>file:/C:/xampp/htdocs/Site/app/sts/controllers/Contato.php</file>
-            <file>file:/C:/xampp/htdocs/Site/assets/js/personalizado.js</file>
-            <file>file:/C:/xampp/htdocs/Site/app/sts/controllers/SobreEmpresa.php</file>
-            <file>file:/C:/xampp/htdocs/Site/app/sts/Models/helper/StsCreate.php</file>
-            <file>file:/C:/xampp/htdocs/Site/app/sts/Models/StsSobEmp.php</file>
-            <file>file:/C:/xampp/htdocs/Site/app/sts/Models/StsContato.php</file>
-            <file>file:/C:/xampp/htdocs/Site/app/sts/Views/sobEmp/sobEmp.php</file>
-            <file>file:/C:/xampp/htdocs/Site/core/ConfigController.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

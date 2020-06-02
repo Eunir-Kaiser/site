@@ -7,8 +7,7 @@ namespace Core;
  *
  * @copyright (c) year, Cesar Szpak - Celke
  */
-class ConfigController
-{
+class ConfigController {
 
     private $Url;
     private $UrlConjunto;
@@ -16,8 +15,7 @@ class ConfigController
     private $UrlParametro;
     private static $Format;
 
-    public function __construct()
-    {
+    public function __construct() {
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
             $this->Url = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
             $this->limparUrl();
@@ -42,8 +40,7 @@ class ConfigController
         }
     }
 
-    private function limparUrl()
-    {
+    private function limparUrl() {
         //Eliminar as tags
         $this->Url = strip_tags($this->Url);
         //Eliminar espaços em branco
@@ -57,8 +54,7 @@ class ConfigController
         $this->Url = strtr(utf8_decode($this->Url), utf8_decode(self::$Format['a']), self::$Format['b']);
     }
 
-    public function slugController($SlugController)
-    {
+    public function slugController($SlugController) {
         //$UrlController = strtolower($SlugController);
         //$UrlController = explode("-", $UrlController);
         //$UrlController = implode(" ", $UrlController);
@@ -67,12 +63,16 @@ class ConfigController
         $UrlController = str_replace(" ", "", ucwords(implode(" ", explode("-", strtolower($SlugController)))));
         return $UrlController;
     }
-    
-    public function carregar()
-    {
+
+    public function carregar() {
         $classe = "\\Sts\\Controllers\\" . $this->UrlController;
         $classeCarregar = new $classe;
-        $classeCarregar->index();
+
+        if ($this->UrlParametro !== null) {
+            $classeCarregar->index($this->UrlParametro);
+        } else {
+            $classeCarregar->index();
+        }
     }
 
 }
